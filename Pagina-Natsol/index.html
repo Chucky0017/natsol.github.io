@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Natsol</title>
+    <meta name="google-site-verification" content="DqiXuAi3Hjb0qzeVYGBRhioeBp1DMsC04hzZjvekcoc" />
+    <!-- Jquery UI -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon1.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script>
+        $(function () {
+            var availableTags = [
+                "Manual de sostenibilidad",
+                "Guía de eco-sostenibilidad",
+                "Principios de sostenibilidad",
+                "Sostenibilidad en empresas",
+                "Manual de ecología",
+                "Sostenibilidad práctica",
+                "Guía de cambio climático",
+                "Eco-gestión empresarial",
+                "Sostenibilidad en la industria",
+                "Manual de conservación ambiental"
+            ];
+
+            function split(val) {
+                return val.split(/,\s*/);
+            }
+            function extractLast(term) {
+                return split(term).pop();
+            }
+
+            $("#tags")
+                .on("keydown", function (event) {
+                    if (event.keyCode === $.ui.keyCode.TAB &&
+                        $(this).autocomplete("instance").menu.active) {
+                        event.preventDefault();
+                    }
+                })
+                .autocomplete({
+                    minLength: 0,
+                    source: function (request, response) {
+                        response($.ui.autocomplete.filter(
+                            availableTags, extractLast(request.term)));
+                    },
+                    focus: function () {
+                        return false;
+                    },
+                    select: function (event, ui) {
+                        var terms = split(this.value);
+                        terms.pop();
+                        terms.push(ui.item.value);
+                        terms.push("");
+                        this.value = terms.join(", ");
+                        return false;
+                    }
+                });
+        });
+        $(function () {
+            var availableTags = [
+                "Sostenibilidad y ecología",
+                "Cambio climático",
+                "Economía verde",
+                "Huella ecológica",
+                "Ecología industrial",
+                "Acción sostenible",
+                "Desafío de la sostenibilidad",
+                "Ecología profunda",
+                "Planeta en peligro",
+                "Sostenibilidad en acción"
+            ];
+            function split(val) {
+                return val.split(/,\s*/);
+            }
+            function extractLast(term) {
+                return split(term).pop();
+            }
+
+            $("#tags2")
+                .on("keydown", function (event) {
+                    if (event.keyCode === $.ui.keyCode.TAB &&
+                        $(this).autocomplete("instance").menu.active) {
+                        event.preventDefault();
+                    }
+                })
+                .autocomplete({
+                    minLength: 0,
+                    source: function (request, response) {
+                        response($.ui.autocomplete.filter(
+                            availableTags, extractLast(request.term)));
+                    },
+                    focus: function () {
+                        return false;
+                    },
+                    select: function (event, ui) {
+                        var terms = split(this.value);
+                        terms.pop();
+                        terms.push(ui.item.value);
+                        terms.push("");
+                        this.value = terms.join(", ");
+                        return false;
+                    }
+                });
+        });
+    </script>
+    <style>
+        .ui-autocomplete {
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top"><img src="assets/img/logo1nat.png" alt="..." /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Soluciones Ambientales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contactanos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Bienvenido !</div>
+            <div class="masthead-heading text-uppercase">Consultoria Natsol</div>
+            <a class="btn btn-xl text-uppercase" style="background-color: #2ECC71;" href="#services">Ver Servicios</a>
+        </div>
+    </header>
+
+
+
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Servicios</h2>
+                <h3 class="section-subheading text-muted">Estos son los servicios que nuestra consultoría proporciona:</h3>
+            </div>
+            <div class="row text-center mb-3">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x" style="color: rgb(46, 204, 113 );"></i>
+                        <i class="fas fa-person-chalkboard fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Consultoria</h4>
+                    <label class="text-muted">Evaluar el Impacto Ambiental a Empresas</label>
+                    <label class="text-muted">Desarrollar Estrategias Sostenibles</label>
+                    <label class="text-muted">Cumplimiento Normativo Ambiental</label>
+                    <label class="text-muted">Gestionar Residuos</label>
+                    <label class="text-muted">Educación y Sensibilización Ambiental</label>
+                   
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x" style="color: rgb(46, 204, 113 );"></i>
+                        <i class="fas fa-file fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Manuales</h4>
+                    <label class="text-muted">Manual de Estrategias de Responsabilidad Social Empresarial</label>
+                    <label class="text-muted">Manual de Educación Ambiental</label>
+                    <label class="text-muted">Manual de Monitoreo y Seguimiento Ambiental</label>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x " style="color: rgb(46, 204, 113 );"></i>
+                        <i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Libros</h4>
+                    
+                    <p class="text-muted">"Libros que proporcionen información sobre cómo mantener un entorno sostenible."</p>
+                </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#modalPay1">
+                    Comprar
+                </button>
+            </div>
+
+            <!-- ModalPay1 -->
+            <div class="modal fade" id="modalPay1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modalPay1Label">Servicios</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-0">
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 d-grid gap-2">
+                                    <button type="button" class="btn btn-light btn-xl btn-block"
+                                        data-bs-target="#modalPay2-consultoria"
+                                        data-bs-toggle="modal">Consultoria</button>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 d-grid gap-2">
+                                    <button type="button" class="btn btn-light btn-xl btn-block"
+                                        data-bs-target="#modalPay2-manuales-libros"
+                                        data-bs-toggle="modal">Manuales/Libros</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                            <!-- <button type="button" class="btn btn-primary">Comprar</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ModalPay2-consultoria -->
+            <div class="modal fade" id="modalPay2-consultoria" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="Pay2-consultoriaLabel">Solicitud de asesoramiento</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group mb-3">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" autocomplete="off"
+                                    required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="correo">Correo electrónico:</label>
+                                <input type="email" class="form-control" id="correo" name="correo" autocomplete="off"
+                                    required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="telefono">Teléfono de contacto:</label>
+                                <input type="tel" class="form-control" id="telefono" name="telefono" autocomplete="off"
+                                    required>
+                            </div>
+
+                            <div class="form-group mb-3s">
+                                <label for="mensaje">Mensaje o detalles de asesoramiento deseado:</label>
+                                <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                data-bs-target="#modalPay1">
+                                Regresar
+                            </button>
+                            <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> -->
+                            <button type="submit" class="btn btn-primary">Solicitar Asesoramiento</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ModalPay2-manuales-libros -->
+            <div class="modal fade" id="modalPay2-manuales-libros" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modalPay2-manuales-librosLabel">Manuales y Libros</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <div class="ui-widget">
+                                        <label for="tags">Manuales:</label>
+                                        <input id="tags" class="form-control" size="50">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="ui-widget">
+                                        <label for="tags2">Libros:</label>
+                                        <input id="tags2" class="form-control" size="50">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-top mb-3"></div>
+
+                            <div class="form-group mb-3">
+                                <label for="nombre-titular">Nombre del Titular de la Tarjeta:</label>
+                                <input type="text" class="form-control" id="nombre-titular" name="nombre-titular"
+                                    required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="numero-tarjeta">Número de Tarjeta:</label>
+                                <input type="text" class="form-control" id="numero-tarjeta" name="numero-tarjeta"
+                                    required>
+                            </div>
+
+                            <div class="form-group row mb-3">
+                                <div class="form-group col-md-6">
+                                    <label for="fecha-vencimiento">Fecha de Vencimiento:</label>
+                                    <input type="text" class="form-control" id="fecha-vencimiento"
+                                        name="fecha-vencimiento" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="cvv">CVV:</label>
+                                    <input type="text" class="form-control" id="cvv" name="cvv" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="monto">Monto a Pagar:</label>
+                                <input type="number" class="form-control" id="monto" name="monto" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                data-bs-target="#modalPay1">
+                                Regresar
+                            </button>
+                            <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button> -->
+                            <button type="submit" class="btn btn-primary">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid-->
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Soluciones Ambientales</h2>
+                <h3 class="section-subheading text-muted">Transformamos desafíos en sostenibilidad.</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 1-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/1.png" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Deforestación</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 2-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/2.png" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Conservacion de la Biodiversidad</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 3-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/3.png" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Desarrollo Sostenible</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                    <!-- Portfolio item 4-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/4.png" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Cambio climático</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                    <!-- Portfolio item 5-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/5.png" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Gestión de residuos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <!-- Portfolio item 6-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/6.png" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Escasez de recursos naturales</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- About-->
+    <section class="page-section" id="about">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Nosotros</h2>
+                <h3 class="section-subheading text-muted">Progreso continuo de Natsol Consulting</h3>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg"
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>2021 - 2022</h4>
+                            <h4 class="subheading">Fase de Establecimiento y Lanzamiento</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">NATSOL Consulting se centrará en consolidarse como una firma de
+                                consultoría ambiental e introducir sus servicios en el mercado. Esto incluirá la
+                                contratación de expertos en consultoría ambiental y la creación del primer recurso
+                                descargable.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg"
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Agosto 2022</h4>
+                            <h4 class="subheading">Expansión de Servicios y Recursos</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">La empresa ampliará su cartera de servicios de consultoría ambiental y
+                                desarrollará una gama de recursos educativos descargables, como manuales, guías e
+                                informes sobre temas de sostenibilidad.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg"
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Marzo 2023</h4>
+                            <h4 class="subheading">Colaboración y Alianzas Estratégicas</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">NATSOL Consulting fortalecerá su posición en el mercado cooperando y
+                                formando alianzas estratégicas con otras empresas relacionadas con el medio ambiente.
+                                Esto incluye asociaciones con empresas que comparten objetivos de sostenibilidad.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg"
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Octubre 2023</h4>
+                            <h4 class="subheading">Implementación del E-commerce</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Actualmente, NATSOL Consulting considera implementar un sistema de
+                                comercio electrónico. Esto le permitirá ampliar su alcance y brindar servicios y
+                                recursos en línea de manera más eficiente. La implementación del comercio electrónico
+                                ayudará a diversificar la línea de oferta de servicios.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image" style="background-color: #2ECC71;">
+                        <h4>
+                            Sé parte
+                            <br />
+                            de nuestra
+                            <br />
+                            historia!
+                        </h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- Team
+        
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
+                            <h4>Parveen Anand</h4>
+                            <p class="text-muted">Lead Designer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
+                            <h4>Diana Petersen</h4>
+                            <p class="text-muted">Lead Marketer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
+                            <h4>Larry Parker</h4>
+                            <p class="text-muted">Lead Developer</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+                </div>
+            </div>
+        </section>
+
+    -->
+
+
+    <!-- Clients
+        <div class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/microsoft.svg" alt="..." aria-label="Microsoft Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/google.svg" alt="..." aria-label="Google Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/facebook.svg" alt="..." aria-label="Facebook Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/ibm.svg" alt="..." aria-label="IBM Logo" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    -->
+    <!-- Contact-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contactanos</h2>
+                <h3 class="section-subheading text-muted">Estamos disponibles para todo latinoamarica</h3>
+            </div>
+
+            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- Name input-->
+                            <input class="form-control" id="name" type="text" placeholder="Tu Nombre"
+                                data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="name:required">El nombre es Requerido</div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Email address input-->
+                            <input class="form-control" id="email" type="email" placeholder="Tu Email"
+                                data-sb-validations="required,email" />
+                            <div class="invalid-feedback" data-sb-feedback="email:required">Tu Email es requerido</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email es invalido</div>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <!-- Phone number input-->
+                            <input class="form-control" id="phone" type="tel" placeholder="Tu numero de celular"
+                                data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">Tu numero de celular es
+                                requerido</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <!-- Message input-->
+                            <textarea class="form-control" id="message" placeholder="Tu Mensaje"
+                                data-sb-validations="required"></textarea>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">El Mensaje es requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Submit success message-->
+                <!---->
+                <!-- This is what your users will see when the form-->
+                <!-- has successfully submitted-->
+                <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center text-white mb-3">
+                        <div class="fw-bolder">¡El envío del formulario fue exitoso!</div>
+                        Nos contactaremos contigo lo más pronto posible
+                        <br />
+
+                    </div>
+                </div>
+                <!-- Submit error message-->
+                <!---->
+                <!-- This is what your users will see when there is-->
+                <!-- an error submitting the form-->
+                <div class="d-none" id="submitErrorMessage">
+                    <div class="text-center text-danger mb-3">Error sending message!</div>
+                </div>
+                <!-- Submit Button-->
+                <div class="text-center"><button class="btn  btn-xl text-uppercase disabled"
+                        style="background-color: #2ECC71;" id="submitButton" type="submit">Enviar Mensaje</button></div>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; Consultoria Natsol 2023</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none me-3" href="#!">Politica de Privacidad</a>
+                    <a class="link-dark text-decoration-none" href="#!">Condiciones de uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modals-->
+    <!-- Portfolio item 1 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Deforestación</h2>
+                                <img class="img-fluid1 d-block mx-auto" src="assets/img/portfolio/1.png" alt="..." />
+                                <p> Lideraremos campañas educativas en escuelas y comunidades para crear conciencia
+                                    sobre la importancia de los bosques. Fomentaremos la participación activa de las
+                                    comunidades locales en proyectos de reforestación y estableceremos asociaciones con
+                                    empresas para financiar iniciativas de conservación.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>NATSOL™</strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 2 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Conservacion de la Biodiversidad</h2>
+                                <img class="img-fluid1 d-block mx-auto" src="assets/img/portfolio/2.png" alt="..." />
+                                <p>Colaboraremos con ONGs y organizaciones comunitarias para establecer áreas protegidas
+                                    y corredores ecológicos. Implementaremos programas de educación ambiental en
+                                    escuelas y comunidades para promover la coexistencia responsable con la fauna local.
+                                    Facilitaremos programas de voluntariado para involucrar a la población en la
+                                    conservación de hábitats naturales.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>NATSOL™</strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 3 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Desarrollo sostenible</h2>
+                                <img class="img-fluid1 d-block mx-auto" src="assets/img/portfolio/3.png" alt="..." />
+                                <p>Estableceremos alianzas con empresas para implementar prácticas sostenibles en sus
+                                    operaciones, involucrando a la sociedad en iniciativas de reciclaje y reducción de
+                                    residuos. Colaboraremos con escuelas y universidades para desarrollar programas
+                                    educativos sobre energías renovables y agricultura sostenible, fomentando el interés
+                                    y la participación de los jóvenes.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>NATSOL™</strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 4 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Cambio climático</h2>
+                                <img class="img-fluid1 d-block mx-auto" src="assets/img/portfolio/4.png" alt="..." />
+                                <p> Facilitaremos talleres y charlas educativas en escuelas y comunidades sobre el
+                                    cambio climático y sus impactos, involucrando a expertos y científicos para
+                                    proporcionar información precisa. Colaboraremos con ONGs y empresas para desarrollar
+                                    proyectos de mitigación climática, como la plantación de árboles y la promoción de
+                                    tecnologías limpias, invitando a la población a participar activamente en estas
+                                    iniciativas.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>NATSOL™</strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 5 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Gestión de residuos</h2>
+                                <img class="img-fluid1 d-block mx-auto" src="assets/img/portfolio/5.png" alt="..." />
+                                <p>Trabajaremos con gobiernos locales para implementar sistemas de recogida selectiva de
+                                    residuos en comunidades, incentivando la clasificación adecuada en los hogares y
+                                    escuelas. Estableceremos programas de sensibilización en colegios para educar a los
+                                    niños sobre la importancia del reciclaje y organizaremos campañas de limpieza
+                                    comunitaria en colaboración con ONGs y voluntarios locales.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>NATSOL™</strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 6 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Escasez de recursos naturales</h2>
+                                <img class="img-fluid1 d-block mx-auto" src="assets/img/portfolio/6.png" alt="..." />
+                                <p>Organizaremos talleres de conservación del agua y energía en colegios y comunidades,
+                                    promoviendo prácticas eficientes en el uso de estos recursos. Colaboraremos con
+                                    empresas para implementar tecnologías de conservación en sectores como la
+                                    agricultura y la industria. Estableceremos programas de concienciación en
+                                    colaboración con ONGs para sensibilizar a la población sobre el consumo responsable
+                                    de recursos naturales y fomentar cambios de comportamiento en el hogar y en la
+                                    comunidad.</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>NATSOL™</strong>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>
